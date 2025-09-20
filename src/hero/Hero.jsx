@@ -28,11 +28,9 @@ const Hero = () => {
                 <div className="hero-content">
                     <div className="hero-title-wrapper">
                         <span className={`hero-img-behind${floatActive ? ' float-active' : ''}`}>
-                            <img src={'/assets/svg/smile_icon.svg'} alt="Smile Icon" />
-                        </span>
+                            <img src={`${process.env.PUBLIC_URL}/assets/svg/smile_icon.svg`} alt="Smile Icon" />                        </span>
                         <span className="hero-img-forward">
-                            <img src={'/assets/svg/smile_icon.svg'} alt="Smile Icon" />
-                        </span>
+                            <img src={`${process.env.PUBLIC_URL}/assets/svg/smile_icon.svg`} alt="Smile Icon" />                        </span>
                         <h1 className="hero-title">Portfolio</h1>
                         {/* buat garis dan tahun jadi row dan tahun ada di sebelah kanan */}
                         <div className="hero-underline"></div>

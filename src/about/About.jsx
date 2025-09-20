@@ -14,7 +14,7 @@ const About = () => {
         {showContent && (
           <div className="about-content">
             <div className="about-image">
-              <img src={'/assets/svg/my-photo.svg'} alt="Yudi - QA Engineer" />
+              <img src={`${process.env.PUBLIC_URL}/assets/svg/my-photo.svg`} alt="Yudi - QA Engineer" />
             </div>
             <div className="about-column">
               <div className="about-details">
