@@ -1,0 +1,113 @@
+/* Hero Section */
+.hero-content {
+  margin-top: 70px;
+  /* untuk menghindari tertutup header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Custom styles for Hero title with image behind 'H' */
+.hero-title-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-img-behind {
+  position: absolute;
+  left: 0;
+  top: 20%;
+  left: 20%;
+  transform: translateY(-50%) scale(1.2);
+  /* adjust scale as needed */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-img-forward {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  transform: translateY(50%) scale(1.5);
+  /* adjust scale as needed */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-img-forward img {
+  width: 4rem;
+  /* adjust size as needed */
+  height: auto;
+  opacity: 0.9;
+  /* slightly faded behind text */
+}
+
+.hero-img-behind img {
+  width: 4rem;
+  /* adjust size as needed */
+  height: auto;
+  opacity: 0.7;
+  /* slightly faded behind text */
+}
+
+.hero-title {
+  position: relative;
+  z-index: 1;
+  margin-left: 3.5rem;
+  /* push text to the right so 'H' overlays image */
+}
+
+.hero {
+  padding: 120px 0 80px;
+  text-align: center;
+  background: white;
+  color: black;
+  height: 100vh;
+  display: flex;
+  /* Full viewport height */
+  width: 100%;
+}
+.hero-underline {
+  width: 90%;
+  height: 9px;
+  /* buat jadi gradient warnanya semakin kekanan warna putih*/
+  background: linear-gradient(to right, black, white);
+
+  margin: 0 auto 20px;
+  border-radius: 2px;
+  /* buat jadi nempel ke huruf nya */
+  position: relative;
+  top: -90px;
+  /* atur jarak ke huruf */
+  margin-left: 3.5rem;
+  
+}
+.hero-year {
+  position: relative;
+  top: -70px;
+  /* atur jarak ke garis bawah */
+  right: -40%;
+  /* atur jarak ke kanan */
+  font-size: 1.5rem;
+  color: black;
+}
+.hero h1 {
+  font-size: 12rem;
+  margin-bottom: 1rem;
+  font-family: 'Happy Monkey', cursive;
+  /* jangan bold */
+  font-weight: normal;
+  
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  /* rata kanan */
+  text-align: right;  
+  right: -40%;
+  /* pake font ini Happy Monkey */
+  font-family: 'Happy Monkey', cursive;
+  /* ada di pojok kanan bawah buat di landing nya  */
+}
