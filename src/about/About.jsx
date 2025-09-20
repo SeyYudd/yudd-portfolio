@@ -1,22 +1,32 @@
 // components/About.js
-import React from 'react';
+import React, { useState } from 'react';
 import '../about/about.css';
 const About = () => {
 
+  const [showContent, setShowContent] = useState(false);
+
   return (
     <section id="about" className="about">
-      <div className="container">
-        <h2>Tentangsss Saya</h2>
-        <div className="about-content">
-          <div className="about-text">
-            <p>Hai! Saya seorang QA Engineer yang mencintai proses memastikan aplikasi bekerja dengan sempurna. Saya telah melakukan testing untuk aplikasi mobile dan web di perusahaan seperti BRI, BNI, dan Alfadigital—melakukan baik testing manual maupun automation.</p>
-            <p>Saya menggunakan berbagai tools seperti Postman, Appium, Jira, Discover, dan lainnya untuk menemukan bug dan memastikan segala sesuatu berjalan lancar.</p>
-            <p>Dengan pengalaman yang saya miliki, saya memahami pentingnya kualitas software dan dampaknya terhadap pengalaman pengguna.</p>
+      <div className="about-container">
+        <button className="about-pill" onClick={() => setShowContent(!showContent)}>
+          About Me
+        </button>
+        {showContent && (
+          <div className="about-content">
+            <div className="about-image">
+              <img src={'/assets/svg/my-photo.svg'} alt="Yudi - QA Engineer" />
+            </div>
+            <div className="about-column">
+              <div className="about-details">
+                <h2 className='about-h2'>Hi, I'm Yudd</h2>
+                <span className="about-text">
+                  Hi! I'm a QA Engineer who loves making sure apps work perfectly. I've tested mobile and web apps at BRI, BNI, and Alfadigital—doing both manual and automation testing.
+                  I use tools like Postman, Appium, Jira, DBeaver, and more to find bugs and keep things running smoothly.
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="about-image">
-            <img src="https://placehold.co/400x500/3498db/white?text=Yudi's+Photo" alt="Yudi - QA Engineer" />
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

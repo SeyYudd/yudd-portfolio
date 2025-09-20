@@ -54,24 +54,25 @@
   position: relative;
   z-index: 1;
   margin-left: 3.5rem;
+
   /* push text to the right so 'H' overlays image */
 }
 
 .hero {
   padding: 120px 0 80px;
   text-align: center;
-  background: white;
   color: black;
   height: 100vh;
   display: flex;
   /* Full viewport height */
   width: 100%;
 }
+
 .hero-underline {
   width: 90%;
   height: 9px;
   /* buat jadi gradient warnanya semakin kekanan warna putih*/
-  background: linear-gradient(to right, black, white);
+  background: linear-gradient(to right, black, #F8F0E5);
 
   margin: 0 auto 20px;
   border-radius: 2px;
@@ -80,24 +81,19 @@
   top: -90px;
   /* atur jarak ke huruf */
   margin-left: 3.5rem;
-  
+
 }
-.hero-year {
-  position: relative;
-  top: -70px;
-  /* atur jarak ke garis bawah */
-  right: -40%;
-  /* atur jarak ke kanan */
-  font-size: 1.5rem;
-  color: black;
-}
+
 .hero h1 {
   font-size: 12rem;
   margin-bottom: 1rem;
   font-family: 'Happy Monkey', cursive;
   /* jangan bold */
   font-weight: normal;
-  
+  background: linear-gradient(to right, black, #F8F0E5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
@@ -105,7 +101,7 @@
   max-width: 700px;
   margin: 0 auto 2rem;
   /* rata kanan */
-  text-align: right;  
+  text-align: right;
   right: -40%;
   /* pake font ini Happy Monkey */
   font-family: 'Happy Monkey', cursive;

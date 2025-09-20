@@ -33,7 +33,7 @@ const Hero = () => {
                         <span className="hero-img-forward">
                             <img src={'/assets/svg/smile_icon.svg'} alt="Smile Icon" />
                         </span>
-                        <h1 className="hero-title">Hello !!</h1>
+                        <h1 className="hero-title">Portfolio</h1>
                         {/* buat garis dan tahun jadi row dan tahun ada di sebelah kanan */}
                         <div className="hero-underline"></div>
                         <p>2025 - Yudi's Portfolio</p>
