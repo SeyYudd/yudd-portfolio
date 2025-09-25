@@ -1,0 +1,234 @@
+/* Modern Experience Section - Clean but Fun */
+.experience {
+    padding: 2rem 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience-container {
+    width: 90%;
+    max-width: 1200px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    box-shadow: 0 20px 40px -12px rgba(240, 147, 251, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    opacity: 0.5;
+    animation: rotate 25s linear infinite;
+}
+
+.experience-pill {
+    background: rgba(255, 255, 255, 0.9);
+    color: #f5576c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.experience-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+.experience-content {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.experience-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.experience-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.experience-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+.experience-item {
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.job-content {
+    width: 100%;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    margin-bottom: 1rem;
+}
+
+.position {
+    color: #1f2937;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.company {
+    color: #f5576c;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.period {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.skill-tag {
+    background: rgba(245, 87, 108, 0.1);
+    color: #f5576c;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(245, 87, 108, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .experience-container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .experience-grid {
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+
+    .experience-title {
+        font-size: 2rem;
+    }
+
+    .position {
+        font-size: 1.1rem;
+    }
+
+    .company {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

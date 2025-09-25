@@ -1,42 +1,66 @@
-// components/Projects.js
-import React from 'react';
+// Modern Projects Component
+import React, { useState } from 'react';
+import './projects.css';
 
 const Projects = () => {
+  const [showContent, setShowContent] = useState(false);
+
   const projects = [
     {
-      name: "Ngobrolin App",
-      description: "Aplikasi mobile yang tersedia di Play Store untuk membantu komunikasi yang lebih baik.",
-      link: "#"
+      id: 1,
+      title: "Mobile Banking QA",
+      company: "BRI",
+      description: "Comprehensive testing of mobile banking application including API testing, automation with Appium, and user experience validation.",
+      technologies: ["Functional Testing", "UAT", "API Testing", "SIT",],
+      color: "var(--primary-color)"
     },
     {
-      name: "Custom Automation Framework",
-      description: "Framework automation testing yang dibangun untuk meningkatkan efisiensi testing.",
-      link: "#"
+      id: 2,
+      title: "Wondr Banking App, and Back Office",
+      company: "BNI",
+      description: "Wondr Banking App Testing - Ensured seamless banking operations through rigorous testing.",
+      technologies: ["Appium", "Postman", "Functional Testing", "UAT", "Regression Testing", "SIT", "TVT/BVT", "Smoke Testing", "Automation Testing", "Sanity"],
+      color: "var(--accent-yellow)"
     },
     {
-      name: "Testing Documentation",
-      description: "Dokumentasi comprehensive test case untuk berbagai jenis aplikasi.",
-      link: "#"
+      id: 3,
+      title: "Alfagift, AlfaMikro, Alfacart",
+      company: "Alfadigital",
+      description: "Manual testing of mobile applications, test case creation, and bug tracking to ensure quality delivery.",
+      technologies: ["Manual Testing", "Test Cases", "Bug Tracking"],
+      color: "var(--accent-red)"
     }
   ];
 
   return (
     <section id="projects" className="projects">
-      <div className="container">
-        <h2>Proyek Saya</h2>
-        <div className="project-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-image">
-                {project.name}
+      <div className="projects-container">
+        <div className="projects-content">
+          <div className="projects-header">
+            <h2 className="projects-title">My Testing Projects</h2>
+            <p className="projects-subtitle">Quality assurance work that made a difference</p>
+          </div>
+
+          <div className="projects-grid">
+            {projects.map((project, index) => (
+              <div
+                key={project.id}
+                className="project-card"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <span className="project-company">{project.company}</span>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="project-tech">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="project-content">
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <a href={project.link} className="btn">Lihat Detail</a>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

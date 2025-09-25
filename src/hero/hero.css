@@ -1,109 +1,204 @@
-/* Hero Section */
-.hero-content {
-  margin-top: 70px;
-  /* untuk menghindari tertutup header */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Custom styles for Hero title with image behind 'H' */
-.hero-title-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.hero-img-behind {
-  position: absolute;
-  left: 0;
-  top: 20%;
-  left: 20%;
-  transform: translateY(-50%) scale(1.2);
-  /* adjust scale as needed */
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-img-forward {
-  position: absolute;
-  top: 20%;
-  right: 20%;
-  transform: translateY(50%) scale(1.5);
-  /* adjust scale as needed */
-  z-index: 0;
-  pointer-events: none;
-}
-
-.hero-img-forward img {
-  width: 4rem;
-  /* adjust size as needed */
-  height: auto;
-  opacity: 0.9;
-  /* slightly faded behind text */
-}
-
-.hero-img-behind img {
-  width: 4rem;
-  /* adjust size as needed */
-  height: auto;
-  opacity: 0.7;
-  /* slightly faded behind text */
-}
-
-.hero-title {
-  position: relative;
-  z-index: 1;
-  margin-left: 3.5rem;
-
-  /* push text to the right so 'H' overlays image */
-}
-
+/* Modern Hero Section with New Color Palette */
 .hero {
-  padding: 120px 0 80px;
-  text-align: center;
-  color: black;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  /* Full viewport height */
-  width: 100%;
-}
-
-.hero-underline {
-  width: 90%;
-  height: 9px;
-  /* buat jadi gradient warnanya semakin kekanan warna putih*/
-  background: linear-gradient(to right, black, #F8F0E5);
-
-  margin: 0 auto 20px;
-  border-radius: 2px;
-  /* buat jadi nempel ke huruf nya */
+  align-items: center;
+  justify-content: center;
+  background: var(--background-cream);
   position: relative;
-  top: -90px;
-  /* atur jarak ke huruf */
-  margin-left: 3.5rem;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.hero-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Abstract Geometric Shapes */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 200px;
+  height: 200px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  background: var(--accent-yellow);
+  border-radius: 20px;
+  opacity: 0.15;
+  animation: float 4s ease-in-out infinite reverse;
+  transform: rotate(45deg);
+}
+
+.geometric-shape {
+  position: absolute;
+  z-index: 1;
+}
+
+.shape-1 {
+  top: 30%;
+  right: 5%;
+  width: 100px;
+  height: 100px;
+  background: var(--accent-red);
+  border-radius: 30px;
+  opacity: 0.12;
+  animation: rotate 20s linear infinite;
+}
+
+.shape-2 {
+  bottom: 10%;
+  right: 30%;
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.1;
+  animation: bounce 5s ease-in-out infinite;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+  animation: slideInLeft 1s ease-out;
+}
+
+.hero-headline {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero-headline .highlight {
+  color: var(--primary-color);
+  position: relative;
+}
+
+.hero-headline .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--accent-yellow);
+  opacity: 0.3;
+  border-radius: 4px;
+}
+
+
+
+
+/* Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+@keyframes rotate {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
 
 }
 
-.hero h1 {
-  font-size: 12rem;
-  margin-bottom: 1rem;
-  font-family: 'Happy Monkey', cursive;
-  /* jangan bold */
-  font-weight: normal;
-  background: linear-gradient(to right, black, #F8F0E5);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero-container {
+    width: 95%;
+    gap: 2rem;
+  }
+
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+
 }
 
-.hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  /* rata kanan */
-  text-align: right;
-  right: -40%;
-  /* pake font ini Happy Monkey */
-  font-family: 'Happy Monkey', cursive;
-  /* ada di pojok kanan bawah buat di landing nya  */
+@media (max-width: 480px) {
+  .hero-container {
+    width: 90%;
+  }
+
+  .hero-headline {
+    font-size: 2rem;
+  }
+
 }
