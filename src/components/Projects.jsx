@@ -1,69 +1,85 @@
-// Modern Projects Component
-import React, { useState } from 'react';
-import './projects.css';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 
 const Projects = () => {
-  const [showContent, setShowContent] = useState(false);
-
   const projects = [
     {
-      id: 1,
-      title: "Mobile Banking QA",
-      company: "BRI",
-      description: "Comprehensive testing of mobile banking application including API testing, automation with Appium, and user experience validation.",
-      technologies: ["Functional Testing", "UAT", "API Testing", "SIT",],
-      color: "var(--primary-color)"
+      name: "Ngobrolin",
+      tools: "Dart (Flutter)",
+      platform: "Android",
+      link: "https://play.google.com/store/apps/details?id=com.ngobrol_seru"
     },
     {
-      id: 2,
-      title: "Wondr Banking App, and Back Office",
-      company: "BNI",
-      description: "Wondr Banking App Testing - Ensured seamless banking operations through rigorous testing.",
-      technologies: ["Appium", "Postman", "Functional Testing", "UAT", "Regression Testing", "SIT", "TVT/BVT", "Smoke Testing", "Automation Testing", "Sanity"],
-      color: "var(--accent-yellow)"
-    },
-    {
-      id: 3,
-      title: "Alfagift, AlfaMikro, Alfacart",
-      company: "Alfadigital",
-      description: "Manual testing of mobile applications, test case creation, and bug tracking to ensure quality delivery.",
-      technologies: ["Manual Testing", "Test Cases", "Bug Tracking"],
-      color: "var(--accent-red)"
+      name: "Make Everything OK",
+      tools: "Dart (Flutter)",
+      platform: "Android",
+      link: "https://play.google.com/store/apps/details?id=com.makeok.apps"
     }
   ];
 
-  return (
-    <section id="projects" className="projects">
-      <div className="projects-container">
-        <div className="projects-content">
-          <div className="projects-header">
-            <h2 className="projects-title">My Testing Projects</h2>
-            <p className="projects-subtitle">Quality assurance work that made a difference</p>
-          </div>
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: 'easeOut' },
+    },
+  };
 
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className="project-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <span className="project-company">{project.company}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tech">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+  return (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: { transition: { staggerChildren: 0.1 } },
+      }}
+    >
+      {/* Table Header */}
+      <motion.div 
+        variants={itemVariants}
+        className="hidden md:grid grid-cols-4 gap-4 pb-4 border-b border-white/10 text-sm text-gray-500 font-medium uppercase tracking-wider"
+      >
+        <span>Application</span>
+        <span>Tools / Language</span>
+        <span>Platform</span>
+        <span>Link</span>
+      </motion.div>
+
+      {/* Table Rows */}
+      <div className="divide-y divide-white/5">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 py-4 md:py-5 group"
+          >
+            <div className="md:hidden text-xs text-gray-500 uppercase">Application</div>
+            <h3 className="text-white font-medium group-hover:text-accent transition-colors duration-200">
+              {project.name}
+            </h3>
+            
+            <div className="md:hidden text-xs text-gray-500 uppercase mt-3">Tools / Language</div>
+            <span className="text-gray-400">{project.tools}</span>
+            
+            <div className="md:hidden text-xs text-gray-500 uppercase mt-3">Platform</div>
+            <span className="text-gray-400">{project.platform}</span>
+            
+            <div className="md:hidden text-xs text-gray-500 uppercase mt-3">Link</div>
+            <motion.a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: 5 }}
+              className="inline-flex items-center gap-2 text-accent hover:text-accent-light transition-colors duration-200"
+            >
+              <span>View App</span>
+              <ExternalLink size={14} />
+            </motion.a>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </motion.div>
   );
 };
 
