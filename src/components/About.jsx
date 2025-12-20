@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useApp } from '../context/AppContext';
 
 const About = () => {
+  const { t, theme } = useApp();
+  
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -10,6 +13,8 @@ const About = () => {
       transition: { duration: 0.3, ease: 'easeOut' },
     },
   };
+
+  const textColor = theme === 'dark' ? 'text-gray-300' : 'text-gray-700';
 
   return (
     <motion.div
@@ -21,16 +26,17 @@ const About = () => {
     >
       <motion.p 
         variants={itemVariants}
-        className="text-gray-300 text-base md:text-lg leading-relaxed"
+        className={`${textColor} text-base md:text-lg leading-relaxed`}
       >
-        Seorang profesional Pengujian Perangkat Lunak (QA) yang berorientasi pada pengujian manual dan automation (Appium) di berbagai platform (Android, iOS, Web). Berpengalaman menggunakan{' '}
-        <span className="text-accent font-medium">Jira</span>,{' '}
-        <span className="text-accent font-medium">Postman</span>,{' '}
-        <span className="text-accent font-medium">Kibana</span>, dan{' '}
-        <span className="text-accent font-medium">DBeaver</span>{' '}
-        untuk memastikan kualitas dan stabilitas perangkat lunak. Terbiasa bekerja dengan metode{' '}
-        <span className="text-white font-medium">UAT</span>,{' '}
-        <span className="text-white font-medium">SIT</span>, serta berkolaborasi dengan Developer, Scrum Master, Product Owner, dan Architecture Design untuk memastikan kesesuaian produk dengan kebutuhan bisnis.
+        {t('aboutText').split(/(Jira|Postman|Kibana|DBeaver|UAT|SIT)/).map((part, index) => {
+          if (['Jira', 'Postman', 'Kibana', 'DBeaver'].includes(part)) {
+            return <span key={index} className="text-accent font-medium">{part}</span>;
+          }
+          if (['UAT', 'SIT'].includes(part)) {
+            return <span key={index} className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} font-medium`}>{part}</span>;
+          }
+          return part;
+        })}
       </motion.p>
     </motion.div>
   );

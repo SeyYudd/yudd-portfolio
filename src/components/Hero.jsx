@@ -1,7 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useApp } from '../context/AppContext';
+import ImageWithLoader from './ImageWithLoader';
 
 const Hero = () => {
+  const { t, theme } = useApp();
+  
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -10,6 +14,9 @@ const Hero = () => {
       transition: { duration: 0.3, ease: 'easeOut' },
     },
   };
+
+  const textColor = theme === 'dark' ? 'text-white' : 'text-gray-900';
+  const textMuted = theme === 'dark' ? 'text-gray-400' : 'text-gray-600';
 
   return (
     <motion.div
@@ -24,23 +31,23 @@ const Hero = () => {
       <div className="flex-1 text-center md:text-left">
         <motion.h1 
           variants={itemVariants}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 leading-tight"
+          className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold ${textColor} mb-4 leading-tight`}
         >
-          Portfolio — <span className="text-accent">Yudi</span>
+          {t('heroTitle')} <span className="text-accent">Yudi</span>
         </motion.h1>
         
         <motion.p 
           variants={itemVariants}
           className="text-lg md:text-xl text-accent font-medium mb-4"
         >
-          Software Quality Assurance Engineer
+          {t('heroRole')}
         </motion.p>
         
         <motion.p 
           variants={itemVariants}
-          className="text-gray-400 text-base md:text-lg leading-relaxed"
+          className={`${textMuted} text-base md:text-lg leading-relaxed`}
         >
-          "Ensuring quality, stability, and reliability across digital platforms."
+          {t('heroQuote')}
         </motion.p>
       </div>
 
@@ -50,7 +57,7 @@ const Hero = () => {
         className="flex-shrink-0"
       >
         <div className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-2 border-accent/30 bg-dark-700">
-          <img 
+          <ImageWithLoader 
             src={`${process.env.PUBLIC_URL}/assets/svg/my-photo.svg`}
             alt="Yudi - QA Engineer"
             className="w-full h-full object-cover"

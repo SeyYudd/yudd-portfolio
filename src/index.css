@@ -14,8 +14,23 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
   
+  /* Dark theme (default) */
+  .dark-theme body,
+  html:not(.light-theme) body {
+    @apply bg-black text-white;
+  }
+  
+  /* Light theme */
+  .light-theme body {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
   ::selection {
     @apply bg-accent/30 text-white;
+  }
+  
+  .light-theme ::selection {
+    @apply bg-accent/50 text-gray-900;
   }
 }
 

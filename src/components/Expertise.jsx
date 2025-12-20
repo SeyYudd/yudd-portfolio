@@ -1,25 +1,71 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useApp } from '../context/AppContext';
 
 const Expertise = () => {
-  const skillCategories = [
-    {
-      title: "Testing Methodologies",
-      skills: ["UAT", "SIT", "TVT/BVT", "Sanity", "Smoke", "Regression", "TCM"]
-    },
-    {
-      title: "QA & Testing Tools",
-      skills: ["Postman", "Jira", "DBeaver", "Kibana", "Redis", "Mobax", "Appium", "Android Studio"]
-    },
-    {
-      title: "Technical Skills",
-      skills: ["API Testing", "Debugging", "Log Tracing", "Data Validation"]
-    },
-    {
-      title: "Workflow",
-      skills: ["Agile Scrum", "Production Support"]
-    }
-  ];
+  const { t, theme } = useApp();
+
+const skillCategories = [
+  {
+    title: t('testingMethodologies'),
+    skills: [
+      "UAT",
+      "SIT",
+      "TVT / BVT",
+      "Sanity Testing",
+      "Smoke Testing",
+      "Regression Testing",
+      "Test Case Management (TCM)"
+    ]
+  },
+  {
+    title: t('qaTestingTools'),
+    skills: [
+      "Postman",
+      "Jira",
+      "DBeaver",
+      "Kibana",
+      "Redis",
+      "Mobax",
+      "Appium",
+      "Android Studio",
+      "AS400",
+      "Figma",
+      "Marvelapp"
+    ]
+  },
+  {
+    title: t('technicalSkills'),
+    skills: [
+      "API Testing",
+      "End-to-End (E2E) Testing",
+      "UI Testing",
+      "Functional Testing",
+      "Manual Testing",
+      "Automation Testing",
+      "Log Tracing & Analysis",
+      "Debugging",
+      "Data Validation",
+      "CI/CD Basics",
+      "Basic Scripting (Bash, Python)",
+      "Dart (Flutter)",
+      "Database Testing (MySQL, PostgreSQL)",
+      "Data Visualization (Tableau, Power BI)"
+    ]
+  },
+  {
+    title: t('workflow'),
+    skills: [
+      "Agile / Scrum",
+      "SDLC",
+      "Waterfall",
+      "Bug Reporting & Tracking",
+      "Production Support",
+      "Cross-team Collaboration"
+    ]
+  }
+];
+
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -52,7 +98,7 @@ const Expertise = () => {
               <motion.span
                 key={skillIndex}
                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(247, 209, 222, 0.15)' }}
-                className="px-4 py-2 border border-white/10 text-gray-300 rounded-full text-sm hover:border-accent hover:text-accent transition-colors duration-200 cursor-default"
+                className={`px-4 py-2 border ${theme === 'dark' ? 'border-white/10 text-gray-300' : 'border-gray-200 text-gray-700'} rounded-full text-sm hover:border-accent hover:text-accent transition-colors duration-200 cursor-default`}
               >
                 {skill}
               </motion.span>

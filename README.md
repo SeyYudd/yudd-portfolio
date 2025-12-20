@@ -1,70 +1,200 @@
-# Getting Started with Create React App
+# 🎨 Yudi's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+![Portfolio Preview](https://img.shields.io/badge/Portfolio-Yudi-f7d1de?style=for-the-badge&logo=react)
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.x-0055FF?style=flat-square&logo=framer)
 
-In the project directory, you can run:
+**Personal portfolio website of Muhamad Syifa Wahyudi (Yudi)**  
+*Software Quality Assurance Engineer*
 
-### `npm start`
+[🌐 Live Demo](https://seyyudd.github.io/yudd-portfolio) | [📧 Contact](mailto:muhammadsyifaw98@gmail.com) | [💼 LinkedIn](https://linkedin.com/in/muhamad-syifa-wahyudi)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🌙 **Dark/Light Theme** - Toggle between dark and light modes
+- 🌐 **Bilingual Support** - Indonesian (default) and English
+- 🎬 **Loading Animation** - Smooth 0-100% progress loading screen
+- 🪗 **Accordion Navigation** - Unique and memorable section navigation
+- 📱 **Fully Responsive** - Optimized for all screen sizes
+- ⚡ **Smooth Animations** - Powered by Framer Motion
+- 🛡️ **Error Handling** - Fun and friendly error messages
+- 🖼️ **Image Loading States** - Skeleton loaders for images
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Technology | Purpose |
+|------------|---------|
+| **React 18** | UI Framework |
+| **Tailwind CSS** | Styling |
+| **Framer Motion** | Animations |
+| **Lucide React** | Icons |
+| **GitHub Pages** | Hosting |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📦 Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+Make sure you have the following installed:
+- **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
+- **npm** or **yarn** - Comes with Node.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Step-by-Step Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SeyYudd/yudd-portfolio.git
+   cd yudd-portfolio
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Start the development server**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-## Learn More
+4. **Open in browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deploy to GitHub Pages
 
-### Code Splitting
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Deploy**
+   ```bash
+   npm run deploy
+   ```
 
-### Analyzing the Bundle Size
+The site will be available at: `https://<your-username>.github.io/yudd-portfolio`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Environment Variables
 
-### Making a Progressive Web App
+No environment variables are required for basic setup.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📁 Project Structure
 
-### Advanced Configuration
+```
+yudd-portfolio/
+├── public/
+│   ├── index.html          # Main HTML with meta tags
+│   ├── manifest.json       # PWA manifest
+│   └── assets/
+│       └── svg/            # SVG assets
+├── src/
+│   ├── components/
+│   │   ├── About.jsx           # About section
+│   │   ├── AccordionItem.jsx   # Accordion component
+│   │   ├── CareerJourney.jsx   # Work experience timeline
+│   │   ├── Contact.jsx         # Contact information
+│   │   ├── Education.jsx       # Academic background
+│   │   ├── ErrorBoundary.jsx   # Fun error handling
+│   │   ├── Expertise.jsx       # Skills & expertise
+│   │   ├── Hero.jsx            # Hero section
+│   │   ├── ImageWithLoader.jsx # Image with loading state
+│   │   ├── LanguageToggle.jsx  # Language switcher
+│   │   ├── LoadingScreen.jsx   # Loading animation
+│   │   ├── Projects.jsx        # Projects showcase
+│   │   └── ThemeToggle.jsx     # Theme switcher
+│   ├── context/
+│   │   └── AppContext.jsx      # Global state & translations
+│   ├── App.js              # Main app component
+│   ├── App.css             # App styles
+│   ├── index.js            # Entry point
+│   └── index.css           # Global styles & Tailwind
+├── tailwind.config.js      # Tailwind configuration
+├── package.json            # Dependencies & scripts
+└── README.md               # This file
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🎨 Customization
 
-### Deployment
+### Change Colors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Edit `tailwind.config.js`:
 
-### `npm run build` fails to minify
+```javascript
+colors: {
+  accent: {
+    DEFAULT: '#f7d1de',  // Main accent color
+    light: '#fce8ef',    // Light variant
+    dark: '#e8b4c4',     // Dark variant
+  },
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Add New Language
+
+Edit `src/context/AppContext.jsx` and add translations to the `translations` object.
+
+### Modify Sections
+
+Each section is a separate component in `src/components/`. Edit or add components as needed.
+
+## 📱 Responsive Breakpoints
+
+| Breakpoint | Width |
+|------------|-------|
+| `sm` | 640px |
+| `md` | 768px |
+| `lg` | 1024px |
+| `xl` | 1280px |
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available for personal use.
+
+## 👨‍💻 About Me
+
+**Muhamad Syifa Wahyudi (Yudi)**
+
+- 🎓 Computer Science Graduate - Binus University (2022)
+- 💼 Software Quality Assurance Engineer
+- 📧 [muhammadsyifaw98@gmail.com](mailto:muhammadsyifaw98@gmail.com)
+- 💼 [LinkedIn](https://linkedin.com/in/muhamad-syifa-wahyudi)
+- 🐙 [GitHub](https://github.com/SeyYudd)
+
+### Work Experience
+
+| Company | Role | Period |
+|---------|------|--------|
+| PT Steradian Data Optima | SQA Engineer | May 2025 - Present |
+| PT NTT Indonesia Technology | SQA | Feb 2024 - Jan 2025 |
+| PT Sumber Trijaya Lestari | Product Operation | Feb 2020 - Feb 2021 |
+
+---
+
+<div align="center">
+
+Made with ❤️ by Yudi
+
+⭐ Star this repo if you find it helpful!
+
+</div>

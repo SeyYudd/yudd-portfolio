@@ -1,24 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, ExternalLink, ArrowRight } from 'lucide-react';
+import { Mail, Linkedin, ExternalLink, ArrowRight, Github } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 const Contact = () => {
+  const { t, theme } = useApp();
+  
   const contactInfo = [
     {
       icon: <Mail size={18} />,
-      label: "Email",
+      label: t('email'),
       value: "muhammadsyifaw98@gmail.com",
       href: "mailto:muhammadsyifaw98@gmail.com"
     },
     {
       icon: <Linkedin size={18} />,
-      label: "LinkedIn",
+      label: t('linkedin'),
       value: "linkedin.com/in/muhamad-syifa-wahyudi",
       href: "https://linkedin.com/in/muhamad-syifa-wahyudi"
     },
     {
+      icon: <Github size={18} />,
+      label: "GitHub",
+      value: "github.com/SeyYudd",
+      href: "https://github.com/SeyYudd"
+    },
+    {
       icon: <ExternalLink size={18} />,
-      label: "Portfolio",
+      label: t('portfolioLink'),
       value: "tr.ee/1G9x0Pq35S",
       href: "https://tr.ee/1G9x0Pq35S"
     }
@@ -52,18 +61,18 @@ const Contact = () => {
             rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             variants={itemVariants}
             whileHover={{ x: 5 }}
-            className="flex items-center gap-4 p-4 border border-white/10 rounded-lg hover:border-accent/30 hover:bg-white/[0.02] transition-all duration-200 group"
+            className={`flex items-center gap-4 p-4 border ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'} rounded-lg hover:border-accent/30 ${theme === 'dark' ? 'hover:bg-white/[0.02]' : 'hover:bg-accent/5'} transition-all duration-200 group`}
           >
             <div className="p-2 bg-accent/10 rounded-lg text-accent group-hover:bg-accent group-hover:text-black transition-colors duration-200">
               {contact.icon}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm text-gray-500">{contact.label}</p>
-              <p className="text-white truncate group-hover:text-accent transition-colors duration-200">
+              <p className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}`}>{contact.label}</p>
+              <p className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} truncate group-hover:text-accent transition-colors duration-200`}>
                 {contact.value}
               </p>
             </div>
-            <ArrowRight size={16} className="text-gray-600 group-hover:text-accent transition-colors duration-200" />
+            <ArrowRight size={16} className={`${theme === 'dark' ? 'text-gray-600' : 'text-gray-400'} group-hover:text-accent transition-colors duration-200`} />
           </motion.a>
         ))}
       </div>
@@ -76,7 +85,7 @@ const Contact = () => {
           whileTap={{ scale: 0.98 }}
           className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-accent text-black font-semibold rounded-full hover:bg-accent-light transition-colors duration-200"
         >
-          Let's Connect
+          {t('letsConnect')}
           <ArrowRight size={18} />
         </motion.a>
       </motion.div>

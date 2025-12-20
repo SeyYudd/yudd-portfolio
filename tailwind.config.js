@@ -19,9 +19,9 @@ module.exports = {
           600: '#1a1a1a',
         },
         accent: {
-          DEFAULT: '#f7d1de',
-          light: '#fce8ef',
-          dark: '#e8b4c4',
+          DEFAULT: '#ec3711',
+          light: '#ff5733',
+          dark: '#c42d0e',
         },
       },
     },

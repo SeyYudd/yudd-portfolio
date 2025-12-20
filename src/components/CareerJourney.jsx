@@ -1,12 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useApp } from '../context/AppContext';
 
 const CareerJourney = () => {
+  const { theme } = useApp();
+  
   const experiences = [
     {
       company: "PT Steradian Data Optima",
       position: "Software Quality Assurance Engineer",
-      period: "Mei 2025 – April 2026",
+      period: "Mei 2025 – Present",
       responsibilities: [
         "E2E, API, UI Testing (Ops Console)",
         "SIT & UAT validation",
@@ -67,19 +70,19 @@ const CareerJourney = () => {
           <div className="pb-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
               <div>
-                <h3 className="text-lg md:text-xl font-semibold text-white">
+                <h3 className={`text-lg md:text-xl font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                   {exp.position}
                 </h3>
                 <p className="text-accent font-medium">{exp.company}</p>
               </div>
-              <span className="text-sm text-gray-500 font-mono bg-white/5 px-3 py-1 rounded-full w-fit">
+              <span className={`text-sm ${theme === 'dark' ? 'text-gray-500 bg-white/5' : 'text-gray-600 bg-gray-100'} font-mono px-3 py-1 rounded-full w-fit`}>
                 {exp.period}
               </span>
             </div>
             
             <ul className="space-y-2">
               {exp.responsibilities.map((resp, respIndex) => (
-                <li key={respIndex} className="flex items-start gap-3 text-gray-400 text-sm md:text-base">
+                <li key={respIndex} className={`flex items-start gap-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm md:text-base`}>
                   <span className="text-accent mt-1.5">•</span>
                   <span>{resp}</span>
                 </li>
