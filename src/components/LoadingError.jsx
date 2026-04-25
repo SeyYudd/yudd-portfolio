@@ -1,25 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { AlertTriangle, Bug, RotateCcw } from 'lucide-react';
 
-// Fun error messages
 const funnyMessages = {
   id: [
-    "Waduh! Kayaknya web ini lagi pengen liburan ke bulan 🌙",
-    "Hmm... servernya lagi ngopi dulu kayaknya ☕",
-    "Oops! Ada kucing lewat di keyboard programmer 🐱",
-    "Web-nya lagi main petak umpet nih 🙈",
-    "Tenang, ini bukan salah kamu... mungkin salah WiFi-nya 📶",
-    "Kayaknya web-nya lagi healing dulu sebentar 🧘",
-    "Sabar ya, web-nya lagi buffering ke awan ☁️",
+    'Severity: medium. Rendering pipeline terputus sebelum halaman selesai dimuat.',
+    'Severity: low. UI tampaknya meminta retry untuk memulihkan state awal.',
+    'Severity: high. Ada anomali pada proses loading yang perlu divalidasi ulang.',
   ],
   en: [
-    "Oops! Looks like this website wants to visit the moon 🌙",
-    "Hmm... the server is having a coffee break ☕",
-    "Oops! A cat walked across the programmer's keyboard 🐱",
-    "The website is playing hide and seek 🙈",
-    "Don't worry, it's not your fault... maybe blame the WiFi 📶",
-    "The website is taking a mental health break 🧘",
-    "Hold on, the website is buffering to the clouds ☁️",
+    'Severity: medium. The rendering pipeline stalled before the page finished loading.',
+    'Severity: low. The UI likely needs a retry to restore its initial state.',
+    'Severity: high. A loading anomaly interrupted the normal startup sequence.',
   ],
 };
 
@@ -37,16 +29,18 @@ const LoadingError = () => {
 
   const texts = {
     id: {
-      title: "Waduh! Loadingnya kelamaan...",
-      subtitle: "Kayaknya ada yang nggak beres nih 🤔",
-      refresh: "Coba Lagi",
-      tip: "Tips: Cek koneksi internet kamu ya!",
+      title: 'Bug Report 404',
+      subtitle: 'Halaman gagal memenuhi acceptance criteria saat proses loading.',
+      refresh: 'Retest Build',
+      tip: 'Checklist cepat: refresh halaman, cek koneksi, lalu jalankan ulang validasi.',
+      summary: 'Observed behavior',
     },
     en: {
-      title: "Oops! Loading took too long...",
-      subtitle: "Something doesn't seem right 🤔",
-      refresh: "Try Again",
-      tip: "Tip: Check your internet connection!",
+      title: 'Bug Report 404',
+      subtitle: 'The page did not meet its acceptance criteria during startup.',
+      refresh: 'Retest Build',
+      tip: 'Quick checklist: refresh the page, verify connectivity, then rerun validation.',
+      summary: 'Observed behavior',
     },
   };
 
@@ -54,66 +48,55 @@ const LoadingError = () => {
   const funnyMessage = getRandomMessage();
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-5 text-[var(--text-primary)]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full text-center"
+        className="glass-panel w-full max-w-3xl rounded-[2.5rem] p-6 md:p-8"
       >
-        {/* Error Icon */}
-        <motion.div
-          animate={{ 
-            y: [0, -10, 0],
-          }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity, 
-            ease: "easeInOut"
-          }}
-          className="text-8xl mb-6"
-        >
-          😵‍💫
-        </motion.div>
+        <div className="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-stretch">
+          <div className="rounded-[2rem] border border-[var(--border-soft)] bg-[var(--surface-strong)] p-6">
+            <div className="flex items-center gap-3 text-[var(--accent)]">
+              <AlertTriangle size={18} />
+              <span className="text-xs uppercase tracking-[0.35em]">QA Incident</span>
+            </div>
+            <h1 className="headline-display mt-6 text-5xl text-[var(--text-primary)]">{t.title}</h1>
+            <p className="mt-5 text-sm leading-7 text-[var(--text-secondary)]">{t.subtitle}</p>
+            <div className="mt-8 rounded-[1.5rem] border border-dashed border-[var(--border-strong)] p-4">
+              <p className="text-xs uppercase tracking-[0.28em] text-[var(--text-tertiary)]">{t.summary}</p>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">{funnyMessage}</p>
+            </div>
+          </div>
 
-        {/* Error Title */}
-        <h1 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
-          {t.title}
-        </h1>
+          <div className="flex flex-col justify-between rounded-[2rem] border border-[var(--border-soft)] p-6">
+            <div>
+              <div className="flex items-center gap-3 text-[var(--text-tertiary)]">
+                <Bug size={18} className="text-[var(--accent)]" />
+                <span className="text-xs uppercase tracking-[0.35em]">Reproduction Notes</span>
+              </div>
+              <div className="mt-6 space-y-3">
+                {[1, 2, 3].map((step) => (
+                  <div key={step} className="rounded-[1.25rem] border border-[var(--border-soft)] px-4 py-4 text-sm text-[var(--text-secondary)]">
+                    {step}. {step === 1 ? 'Open portfolio shell' : step === 2 ? 'Observe interrupted loading sequence' : 'Retry after restoring initial conditions'}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        {/* Subtitle */}
-        <p className="text-gray-400 mb-4">
-          {t.subtitle}
-        </p>
-
-        {/* Funny Message */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-lg text-accent mb-8"
-        >
-          {funnyMessage}
-        </motion.p>
-
-        {/* Refresh Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handleRefresh}
-          className="px-8 py-4 bg-accent text-black font-semibold rounded-full hover:bg-accent-light transition-colors"
-        >
-          {t.refresh}
-        </motion.button>
-
-        {/* Tip */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 text-gray-600 text-sm"
-        >
-          {t.tip}
-        </motion.p>
+            <div className="mt-8">
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleRefresh}
+                className="chip-button active"
+              >
+                <RotateCcw size={16} />
+                {t.refresh}
+              </motion.button>
+              <p className="mt-5 text-sm leading-7 text-[var(--text-tertiary)]">{t.tip}</p>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

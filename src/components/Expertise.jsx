@@ -1,9 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { AppWindowMac, Bot, SmartphoneCharging, Swords } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 const Expertise = () => {
-  const { t, theme } = useApp();
+  const { t } = useApp();
+
+  const focusBadges = [
+    { label: 'Playwright', icon: AppWindowMac, color: 'text-[var(--accent)]' },
+    { label: 'Appium', icon: SmartphoneCharging, color: 'text-[var(--accent-pink)]' },
+    { label: 'Bug Hunter', icon: Swords, color: 'text-[var(--accent-lime)]' },
+    { label: 'Automation', icon: Bot, color: 'text-[var(--accent)]' },
+  ];
 
 const skillCategories = [
   {
@@ -65,48 +73,53 @@ const skillCategories = [
     ]
   }
 ];
-
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        visible: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="space-y-8"
-    >
-      {skillCategories.map((category, index) => (
+    <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr_1fr]">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+        {focusBadges.map((badge) => (
+          <motion.div
+            key={badge.label}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/40 p-4"
+          >
+            <badge.icon size={18} className={badge.color} />
+            <p className="mt-3 font-display text-lg text-[var(--text-primary)]">{badge.label}</p>
+            <p className="mt-2 text-sm text-[var(--text-tertiary)]">Skill-badge.</p>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="grid gap-4 lg:col-span-2 md:grid-cols-2">
+        {skillCategories.map((category, index) => (
         <motion.div
           key={index}
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.35, delay: index * 0.06 }}
+          className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-4"
         >
-          <h3 className="text-accent font-medium text-sm uppercase tracking-wider mb-4">
+          <h3 className="eyebrow-label mb-5 glitch-text" data-text={category.title}>
             {category.title}
           </h3>
           <div className="flex flex-wrap gap-2">
             {category.skills.map((skill, skillIndex) => (
               <motion.span
                 key={skillIndex}
-                whileHover={{ scale: 1.05, backgroundColor: 'rgba(247, 209, 222, 0.15)' }}
-                className={`px-4 py-2 border ${theme === 'dark' ? 'border-white/10 text-gray-300' : 'border-gray-200 text-gray-700'} rounded-full text-sm hover:border-accent hover:text-accent transition-colors duration-200 cursor-default`}
+                whileHover={{ y: -3, scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+                className="rounded-[999px] border border-[var(--border-soft)] bg-black/35 px-4 py-2 text-sm text-[var(--text-secondary)] transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 {skill}
               </motion.span>
             ))}
           </div>
         </motion.div>
-      ))}
-    </motion.div>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useApp } from '../context/AppContext';
 
 const CareerJourney = () => {
-  const { theme } = useApp();
+  const { language } = useApp();
   
   const experiences = [
     {
@@ -40,58 +40,43 @@ const CareerJourney = () => {
     }
   ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        visible: { transition: { staggerChildren: 0.15 } },
-      }}
-      className="space-y-6"
-    >
+    <div className="relative space-y-4 before:absolute before:bottom-0 before:left-3 before:top-0 before:w-px before:bg-[linear-gradient(180deg,var(--accent),var(--accent-pink),transparent)]">
       {experiences.map((exp, index) => (
         <motion.div
           key={index}
-          variants={itemVariants}
-          className="relative pl-6 border-l-2 border-accent/30 hover:border-accent transition-colors duration-200"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.35, delay: index * 0.08 }}
+          className="relative ml-7 rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-4"
         >
-          {/* Timeline dot */}
-          <div className="absolute left-0 top-0 w-3 h-3 bg-accent rounded-full -translate-x-[7px]" />
-          
-          <div className="pb-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+          <div className="absolute left-[-1.9rem] top-5 h-4 w-4 rounded-full border border-[var(--accent)] bg-black shadow-[0_0_16px_rgba(0,255,240,0.45)]" />
+          <div>
+            <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <h3 className={`text-lg md:text-xl font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                <p className="eyebrow-label mb-3">{language === 'id' ? 'Perjalanan karir' : 'Career milestone'}</p>
+                <h3 className="text-2xl font-semibold text-[var(--text-primary)]">
                   {exp.position}
                 </h3>
-                <p className="text-accent font-medium">{exp.company}</p>
+                <p className="mt-2 text-base font-medium text-[var(--accent)]">{exp.company}</p>
               </div>
-              <span className={`text-sm ${theme === 'dark' ? 'text-gray-500 bg-white/5' : 'text-gray-600 bg-gray-100'} font-mono px-3 py-1 rounded-full w-fit`}>
+              <span className="chip-button w-fit">
                 {exp.period}
               </span>
             </div>
             
-            <ul className="space-y-2">
-              {exp.responsibilities.map((resp, respIndex) => (
-                <li key={respIndex} className={`flex items-start gap-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm md:text-base`}>
-                  <span className="text-accent mt-1.5">•</span>
-                  <span>{resp}</span>
-                </li>
+            <div className="flex flex-wrap gap-3">
+              {exp.responsibilities.map((resp) => (
+                <span key={resp} className="rounded-[999px] border border-[var(--border-soft)] bg-black/35 px-4 py-2 text-sm text-[var(--text-secondary)]">
+                  {resp}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 };
 

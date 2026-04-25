@@ -4,7 +4,7 @@ import { GraduationCap } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 const Education = () => {
-  const { t, theme } = useApp();
+  const { language, t } = useApp();
   
   const education = [
     {
@@ -19,43 +19,31 @@ const Education = () => {
     }
   ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        visible: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="space-y-4"
-    >
+    <div className="grid gap-5 md:grid-cols-2">
       {education.map((edu, index) => (
         <motion.div
           key={index}
-          variants={itemVariants}
-          className={`flex items-start gap-4 p-4 border ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'} rounded-lg hover:border-accent/30 transition-colors duration-200 group`}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.35, delay: index * 0.08 }}
+          className="bento-card"
         >
-          <div className="p-2 bg-accent/10 rounded-lg text-accent group-hover:bg-accent group-hover:text-black transition-colors duration-200">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
             <GraduationCap size={20} />
-          </div>
-          <div className="flex-1">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-              <h3 className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} font-medium`}>{edu.institution}</h3>
-              <span className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'} font-mono`}>{edu.year}</span>
             </div>
-            <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm mt-1`}>{edu.degree}</p>
+            <span className="chip-button">{edu.year}</span>
           </div>
+          <h3 className="mt-6 text-xl font-semibold text-[var(--text-primary)]">{edu.institution}</h3>
+          <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">{edu.degree}</p>
+          <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[var(--text-tertiary)]">
+            {language === 'id' ? 'Akademik' : 'Academic'}
+          </p>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 };
 

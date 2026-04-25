@@ -46,11 +46,11 @@ const translations = {
     // Contact
     email: "Email",
     linkedin: "LinkedIn",
-    portfolioLink: "Portofolio",
+    portfolioLink: "Behance Portofolio",
     letsConnect: "Mari Terhubung",
     
     // Footer
-    footerText: "© 2025 Muhamad Syifa Wahyudi. Hak cipta dilindungi.",
+    footerText: "© 2026 Muhamad Syifa Wahyudi. Hak cipta dilindungi.",
     
     // Loading
     loadingText: "Memuat portofolio...",
@@ -110,7 +110,7 @@ const translations = {
     letsConnect: "Let's Connect",
     
     // Footer
-    footerText: "© 2025 Muhamad Syifa Wahyudi. All rights reserved.",
+    footerText: "© 2026 Muhamad Syifa Wahyudi. All rights reserved.",
     
     // Loading
     loadingText: "Loading portfolio...",

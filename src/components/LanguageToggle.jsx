@@ -10,14 +10,15 @@ const LanguageToggle = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={toggleLanguage}
-      className="px-3 py-1.5 rounded-full border border-white/20 hover:border-accent transition-colors duration-200 flex items-center gap-2"
+      className="chip-button min-w-[74px] justify-center"
       aria-label={language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
     >
-      <span className="text-sm font-medium">
-        {language === 'id' ? '🇮🇩' : '🇬🇧'}
+      <span className="text-xs font-semibold tracking-[0.32em]">
+        {language === 'id' ? 'ID' : 'EN'}
       </span>
-      <span className="text-xs font-mono text-gray-400 hover:text-accent transition-colors">
-        {language.toUpperCase()}
+      <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+      <span className="text-[10px] uppercase tracking-[0.28em] text-[var(--text-tertiary)]">
+        {language === 'id' ? 'Bahasa' : 'English'}
       </span>
     </motion.button>
   );

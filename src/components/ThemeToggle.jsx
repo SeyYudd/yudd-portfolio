@@ -11,7 +11,7 @@ const ThemeToggle = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={toggleTheme}
-      className="p-2 rounded-full border border-white/20 hover:border-accent hover:text-accent transition-colors duration-200"
+      className="chip-button h-11 w-11 justify-center p-0"
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <motion.div
@@ -20,9 +20,9 @@ const ThemeToggle = () => {
         transition={{ duration: 0.3 }}
       >
         {theme === 'dark' ? (
-          <Moon size={18} className="text-accent" />
+          <Moon size={18} className="text-[var(--accent)]" />
         ) : (
-          <Sun size={18} className="text-accent" />
+          <Sun size={18} className="text-[var(--accent)]" />
         )}
       </motion.div>
     </motion.button>

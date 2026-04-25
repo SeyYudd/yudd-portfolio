@@ -4,7 +4,7 @@ import { Mail, Linkedin, ExternalLink, ArrowRight, Github } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 const Contact = () => {
-  const { t, theme } = useApp();
+  const { language, t } = useApp();
   
   const contactInfo = [
     {
@@ -28,68 +28,70 @@ const Contact = () => {
     {
       icon: <ExternalLink size={18} />,
       label: t('portfolioLink'),
-      value: "tr.ee/1G9x0Pq35S",
-      href: "https://tr.ee/1G9x0Pq35S"
+      value: "https://www.behance.net/gallery/",
+      href: "https://www.behance.net/gallery/222698041/Yudd-Portfolio/modules/1271366297"
     }
   ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        visible: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="space-y-6"
-    >
-      {/* Contact Links */}
-      <div className="space-y-3">
-        {contactInfo.map((contact, index) => (
-          <motion.a
-            key={index}
-            href={contact.href}
-            target={contact.href.startsWith('http') ? '_blank' : undefined}
-            rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            variants={itemVariants}
-            whileHover={{ x: 5 }}
-            className={`flex items-center gap-4 p-4 border ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'} rounded-lg hover:border-accent/30 ${theme === 'dark' ? 'hover:bg-white/[0.02]' : 'hover:bg-accent/5'} transition-all duration-200 group`}
-          >
-            <div className="p-2 bg-accent/10 rounded-lg text-accent group-hover:bg-accent group-hover:text-black transition-colors duration-200">
-              {contact.icon}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}`}>{contact.label}</p>
-              <p className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} truncate group-hover:text-accent transition-colors duration-200`}>
-                {contact.value}
-              </p>
-            </div>
-            <ArrowRight size={16} className={`${theme === 'dark' ? 'text-gray-600' : 'text-gray-400'} group-hover:text-accent transition-colors duration-200`} />
-          </motion.a>
-        ))}
-      </div>
+    <div className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-5"
+      >
+        <div>
+          <p className="eyebrow-label">Open for collaboration</p>
+          <h3 className="headline-display mt-5 text-4xl text-[var(--text-primary)] sm:text-5xl">
+            {language === 'id' ? 'Mari bicara kualitas produk.' : 'Let’s talk product quality.'}
+          </h3>
+          <p className="mt-5 text-base leading-8 text-[var(--text-secondary)]">
+            {language === 'id'
+              ? 'Saya terbuka untuk peran QA engineer, kolaborasi automation testing, atau diskusi tentang strategi quality assurance yang lebih rapi.'
+              : 'I am open to QA engineer roles, automation testing collaboration, or discussions about cleaner quality assurance strategy.'}
+          </p>
+        </div>
 
-      {/* CTA Button */}
-      <motion.div variants={itemVariants} className="pt-4">
         <motion.a
           href="mailto:muhammadsyifaw98@gmail.com"
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
-          className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-accent text-black font-semibold rounded-full hover:bg-accent-light transition-colors duration-200"
+          className="chip-button active mt-8 w-fit"
         >
           {t('letsConnect')}
           <ArrowRight size={18} />
         </motion.a>
       </motion.div>
-    </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        className="grid gap-3"
+      >
+        {contactInfo.map((contact, index) => (
+          <a
+            key={index}
+            href={contact.href}
+            target={contact.href.startsWith('http') ? '_blank' : undefined}
+            rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,0,122,0.12)]"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-[0.8rem] bg-[var(--accent-soft)] text-[var(--accent)]">
+              {contact.icon}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs uppercase tracking-[0.26em] text-[var(--text-tertiary)]">{contact.label}</p>
+              <p className="mt-2 truncate text-base font-semibold text-[var(--text-primary)]">
+                {contact.value}
+              </p>
+            </div>
+            <ArrowRight size={16} className="text-[var(--accent)]" />
+          </a>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 

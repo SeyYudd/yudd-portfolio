@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Building2, User } from 'lucide-react';
+import { ArrowUpRight, Building2, User } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 const Projects = () => {
-  const { t, theme } = useApp();
+  const { language, t } = useApp();
   
   const soloProjects = [
     {
@@ -59,140 +59,99 @@ const Projects = () => {
     }
   ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  };
-
-  const textColor = theme === 'dark' ? 'text-white' : 'text-gray-900';
-  const textMuted = theme === 'dark' ? 'text-gray-400' : 'text-gray-600';
-  const textLight = theme === 'dark' ? 'text-gray-500' : 'text-gray-500';
-  const borderColor = theme === 'dark' ? 'border-white/10' : 'border-gray-200';
-  const dividerColor = theme === 'dark' ? 'divide-white/5' : 'divide-gray-100';
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        visible: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="space-y-10"
-    >
-      {/* Solo Projects Section */}
-      <div>
-        <motion.div 
-          variants={itemVariants}
-          className="flex items-center gap-2 mb-4"
-        >
-          <User size={18} className="text-accent" />
-          <h3 className="text-accent font-medium text-sm uppercase tracking-wider">
-            {t('soloProject')}
-          </h3>
-        </motion.div>
-
-        {/* Table Header */}
-        <motion.div 
-          variants={itemVariants}
-          className={`hidden md:grid grid-cols-4 gap-4 pb-4 border-b ${borderColor} text-sm ${textLight} font-medium uppercase tracking-wider`}
-        >
-          <span>{t('application')}</span>
-          <span>{t('toolsLanguage')}</span>
-          <span>{t('platform')}</span>
-          <span>{t('link')}</span>
-        </motion.div>
-
-        {/* Table Rows */}
-        <div className={`divide-y ${dividerColor}`}>
-          {soloProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 py-4 md:py-5 group"
-            >
-              <div className={`md:hidden text-xs ${textLight} uppercase`}>{t('application')}</div>
-              <h4 className={`${textColor} font-medium group-hover:text-accent transition-colors duration-200`}>
-                {project.name}
-              </h4>
-              
-              <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('toolsLanguage')}</div>
-              <span className={textMuted}>{project.tools}</span>
-              
-              <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('platform')}</div>
-              <span className={textMuted}>{project.platform}</span>
-              
-              <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('link')}</div>
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ x: 5 }}
-                className="inline-flex items-center gap-2 text-accent hover:text-accent-light transition-colors duration-200"
-              >
-                <span>{t('viewApp')}</span>
-                <ExternalLink size={14} />
-              </motion.a>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Company Projects Section */}
-      <div>
-        <motion.div 
-          variants={itemVariants}
-          className="flex items-center gap-2 mb-4"
-        >
-          <Building2 size={18} className="text-accent" />
-          <h3 className="text-accent font-medium text-sm uppercase tracking-wider">
+    <div className="grid gap-4 xl:grid-cols-[1.25fr_0.75fr]">
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-4"
+      >
+        <div className="mb-6 flex items-center gap-3">
+          <Building2 size={18} className="text-[var(--accent)]" />
+          <h3 className="eyebrow-label">
             {t('companyProject')}
           </h3>
-        </motion.div>
+        </div>
 
-        {/* Table Header */}
-        <motion.div 
-          variants={itemVariants}
-          className={`hidden md:grid grid-cols-4 gap-4 pb-4 border-b ${borderColor} text-sm ${textLight} font-medium uppercase tracking-wider`}
-        >
-          <span>{t('application')}</span>
-          <span>{t('company')}</span>
-          <span>{t('toolsLanguage')}</span>
-          <span>{t('platform')}</span>
-        </motion.div>
-
-        {/* Table Rows */}
-        <div className={`divide-y ${dividerColor}`}>
+        <div className="grid gap-4">
           {companyProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 py-4 md:py-5 group"
-            >
-              <div className={`md:hidden text-xs ${textLight} uppercase`}>{t('application')}</div>
-              <div>
-                <h4 className={`${textColor} font-medium group-hover:text-accent transition-colors duration-200`}>
-                  {project.name}
-                </h4>
-                <p className={`text-xs ${textMuted} mt-1`}>{project.description}</p>
+            <div key={project.name} className="group rounded-[0.9rem] border border-[var(--border-soft)] bg-black/35 p-5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(0,255,240,0.12)]">
+              <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-[var(--text-tertiary)]">0{index + 1}</p>
+                  <h4 className="glitch-text mt-2 text-xl font-semibold text-[var(--text-primary)]" data-text={project.name}>{project.name}</h4>
+                  <p className="mt-2 text-sm text-[var(--accent)] group-hover:text-[var(--accent-pink)]">{project.company}</p>
+                </div>
+                <span className="chip-button">{project.platform}</span>
               </div>
-              
-              <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('company')}</div>
-              <span className={`${textMuted} text-sm`}>{project.company}</span>
-              
-              <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('toolsLanguage')}</div>
-              <span className={`${textMuted} text-sm`}>{project.tools}</span>
-              
-              <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('platform')}</div>
-              <span className={`${textMuted} text-sm`}>{project.platform}</span>
-            </motion.div>
+
+              <p className="text-sm leading-7 text-[var(--text-secondary)]">{project.description}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.tools.split(', ').map((tool) => (
+                  <span key={tool} className="rounded-full bg-[var(--accent-soft)] px-3 py-2 text-xs font-semibold tracking-[0.08em] text-[var(--accent)]">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
+      </motion.div>
+
+      <div className="grid gap-5">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-4"
+        >
+          <div className="mb-6 flex items-center gap-3">
+            <User size={18} className="text-[var(--accent)]" />
+            <h3 className="eyebrow-label">
+            {t('soloProject')}
+            </h3>
+          </div>
+
+          <div className="space-y-4">
+            {soloProjects.map((project) => (
+              <div key={project.name} className="rounded-[0.9rem] border border-[var(--border-soft)] bg-black/35 p-5">
+                <p className="text-lg font-semibold text-[var(--text-primary)]">{project.name}</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">{project.tools}</p>
+                <div className="mt-5 flex items-center justify-between gap-4">
+                  <span className="rounded-full bg-[var(--accent-soft)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
+                    {project.platform}
+                  </span>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[var(--accent)]"
+                  >
+                    {t('viewApp')}
+                    <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="rounded-[0.8rem] border border-[var(--border-soft)] bg-black/45 p-4"
+        >
+          <p className="eyebrow-label">QA Lens</p>
+          <p className="mt-5 text-base leading-8 text-[var(--text-secondary)]">
+            {language === 'id'
+              ? 'Saya biasanya masuk ke proyek dengan fokus pada payment flow, API validation, UI consistency, hingga data mapping dan troubleshooting produksi.'
+              : 'I usually step into projects with focus on payment flows, API validation, UI consistency, data mapping, and production troubleshooting.'}
+          </p>
+        </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

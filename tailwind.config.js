@@ -7,21 +7,24 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Poppins', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Orbitron', 'sans-serif'],
+        script: ['Rajdhani', 'sans-serif'],
       },
       colors: {
         dark: {
-          DEFAULT: '#000000',
-          900: '#000000',
-          800: '#0a0a0a',
-          700: '#111111',
-          600: '#1a1a1a',
+          DEFAULT: '#050505',
+          900: '#050505',
+          800: '#0f0f0f',
+          700: '#161616',
+          600: '#222222',
         },
         accent: {
-          DEFAULT: '#ec3711',
-          light: '#ff5733',
-          dark: '#c42d0e',
+          DEFAULT: '#00fff0',
+          light: '#7ffcf6',
+          dark: '#00d1c5',
+          pink: '#ff007a',
+          lime: '#adff00',
         },
       },
     },
