@@ -18,10 +18,10 @@ const translations = {
     // Hero
     heroTitle: "Portofolio —",
     heroRole: "Software Quality Assurance Engineer",
-    heroQuote: '"Memastikan kualitas, stabilitas, dan keandalan di seluruh platform digital."',
+    heroQuote: '"Kesempurnaan bukan soal nambah segalanya, tapi soal mastiin ga ada lagi celah yang tersisa.” Antoine de Saint-Exupéry',
     
     // About
-    aboutText: `Seorang profesional Pengujian Perangkat Lunak (QA) yang berorientasi pada pengujian manual dan automation (Appium) di berbagai platform (Android, iOS, Web). Berpengalaman menggunakan Jira, Postman, Kibana, dan DBeaver untuk memastikan kualitas dan stabilitas perangkat lunak. Terbiasa bekerja dengan metode UAT, SIT, serta berkolaborasi dengan Developer, Scrum Master, Product Owner, dan Architecture Design untuk memastikan kesesuaian produk dengan kebutuhan bisnis.`,
+    aboutText: `Kenalin, saya Yudd. Software QA Engineer yang punya misi sederhana: nemuin celah sekecil apa pun sebelum user yang nemuin lebih dulu. Dari Automation sampai nge-query database pake DBeaver, biar ga cuma jalan, tapi lari dengan stabil`,
     
     // Projects
     application: "Aplikasi",
@@ -50,10 +50,10 @@ const translations = {
     letsConnect: "Mari Terhubung",
     
     // Footer
-    footerText: "© 2025 Muhamad Syifa Wahyudi. Hak cipta dilindungi.",
+    footerText: "© 2026 Muhamad Syifa Wahyudi.",
     
     // Loading
-    loadingText: "Memuat portofolio...",
+    loadingText: "Lagi loading portofolio...",
     
     // Error
     errorTitle: "Waduh! Ada yang salah nih...",
@@ -78,10 +78,10 @@ const translations = {
     // Hero
     heroTitle: "Portfolio —",
     heroRole: "Software Quality Assurance Engineer",
-    heroQuote: '"Ensuring quality, stability, and reliability across digital platforms."',
+    heroQuote: '"Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.” Antoine de Saint-Exupéry"',
     
     // About
-    aboutText: `A Software Testing (QA) professional focused on manual and automation testing (Appium) across multiple platforms (Android, iOS, Web). Experienced with Jira, Postman, Kibana, and DBeaver to ensure software quality and stability. Familiar with UAT, SIT methodologies, and collaborating with Developers, Scrum Masters, Product Owners, and Architecture Design to ensure product alignment with business requirements.`,
+    aboutText: `Hi, I’m Yudd. A Software QA Engineer with a simple mission: to find every single loophole before your users do. From building automation flows to deep-diving into databases with DBeaver, I make sure your apps don’t just work they run flawlessly.`,
     
     // Projects
     application: "Application",

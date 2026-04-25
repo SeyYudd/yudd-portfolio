@@ -33,7 +33,7 @@ const Hero = () => {
           variants={itemVariants}
           className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold ${textColor} mb-4 leading-tight`}
         >
-          {t('heroTitle')} <span className="text-accent">Yudi</span>
+          {t('heroTitle')} <span className="text-accent">Yudd</span>
         </motion.h1>
         
         <motion.p 
@@ -59,7 +59,7 @@ const Hero = () => {
         <div className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-2 border-accent/30 bg-dark-700">
           <ImageWithLoader 
             src={`${process.env.PUBLIC_URL}/assets/svg/my-photo.svg`}
-            alt="Yudi - QA Engineer"
+            alt="Yudd - QA Engineer"
             className="w-full h-full object-cover"
           />
         </div>

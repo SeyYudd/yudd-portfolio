@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext';
 
 const Projects = () => {
   const { t, theme } = useApp();
-  
+
   const soloProjects = [
     {
       name: "Ngobrolin",
@@ -18,10 +18,29 @@ const Projects = () => {
       tools: "Dart (Flutter)",
       platform: "Android",
       link: "https://play.google.com/store/apps/details?id=com.makeok.apps"
+    },
+    {
+      name: "Design Logo Freelance",
+      tools: "Figma",
+      platform: "N/A",
     }
   ];
 
   const companyProjects = [
+    {
+      name: "Ops Console by BRI",
+      company: "PT Steradian Data Optima",
+      tools: "E2E Testing, API Testing, UI Testing, Log Monitoring, Kibana, DBeaver, Postman, Jira, Automation Testing (Playwright)",
+      platform: "Web",
+      description: "Web Ops Console for maintain issue users banking system"
+    },
+    {
+      name: "Wondr by BNI",
+      company: "PT NTT Indonesia Technology",
+      tools: "Manual Testing, API Testing, Log Monitoring, Kibana, DBeaver, Automation Testing (Appium)",
+      platform: "Android, iOS, Web",
+      description: "Super app digital banking BNI"
+    },
     {
       name: "Alfa Mikro",
       company: "PT Sumber Trijaya Lestari",
@@ -43,20 +62,6 @@ const Projects = () => {
       platform: "Android, iOS",
       description: "Loyalty & rewards app Alfamart"
     },
-    {
-      name: "Wondr by BNI",
-      company: "PT NTT Indonesia Technology",
-      tools: "Appium, Manual Testing, API Testing",
-      platform: "Android, iOS, Web",
-      description: "Super app digital banking BNI"
-    },
-    {
-      name: "Ops Console by BRI",
-      company: "PT Steradian Data Optima",
-      tools: "E2E Testing, API Testing, UI Testing",
-      platform: "Web",
-      description: "Web Ops Console for maintain issue users banking system"
-    }
   ];
 
   const itemVariants = {
@@ -85,7 +90,7 @@ const Projects = () => {
     >
       {/* Solo Projects Section */}
       <div>
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex items-center gap-2 mb-4"
         >
@@ -96,7 +101,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Table Header */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className={`hidden md:grid grid-cols-4 gap-4 pb-4 border-b ${borderColor} text-sm ${textLight} font-medium uppercase tracking-wider`}
         >
@@ -118,13 +123,13 @@ const Projects = () => {
               <h4 className={`${textColor} font-medium group-hover:text-accent transition-colors duration-200`}>
                 {project.name}
               </h4>
-              
+
               <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('toolsLanguage')}</div>
               <span className={textMuted}>{project.tools}</span>
-              
+
               <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('platform')}</div>
               <span className={textMuted}>{project.platform}</span>
-              
+
               <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('link')}</div>
               <motion.a
                 href={project.link}
@@ -143,7 +148,7 @@ const Projects = () => {
 
       {/* Company Projects Section */}
       <div>
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex items-center gap-2 mb-4"
         >
@@ -154,7 +159,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Table Header */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className={`hidden md:grid grid-cols-4 gap-4 pb-4 border-b ${borderColor} text-sm ${textLight} font-medium uppercase tracking-wider`}
         >
@@ -179,13 +184,13 @@ const Projects = () => {
                 </h4>
                 <p className={`text-xs ${textMuted} mt-1`}>{project.description}</p>
               </div>
-              
+
               <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('company')}</div>
               <span className={`${textMuted} text-sm`}>{project.company}</span>
-              
+
               <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('toolsLanguage')}</div>
               <span className={`${textMuted} text-sm`}>{project.tools}</span>
-              
+
               <div className={`md:hidden text-xs ${textLight} uppercase mt-3`}>{t('platform')}</div>
               <span className={`${textMuted} text-sm`}>{project.platform}</span>
             </motion.div>

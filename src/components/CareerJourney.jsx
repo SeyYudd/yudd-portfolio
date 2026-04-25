@@ -4,21 +4,32 @@ import { useApp } from '../context/AppContext';
 
 const CareerJourney = () => {
   const { theme } = useApp();
-  
+
   const experiences = [
     {
-      company: "PT Steradian Data Optima",
-      position: "Software Quality Assurance Engineer",
-      period: "Mei 2025 – Present",
-      responsibilities: [
-        "E2E, API, UI Testing (Ops Console)",
-        "SIT & UAT validation",
-        "Workflow Maker–Checker–Signer",
-        "Log monitoring, job scheduler, data mapping"
+      "company": "PT PKSS (Project: Bank BRI)",
+      "position": "Software Quality Assurance Engineer",
+      "period": "Mei 2026 – Present",
+      "responsibilities": [
+        "Implementing web automation testing using Playwright to enhance regression efficiency for Ops Console.",
+        "Executing comprehensive E2E, API, and UI testing to ensure system scalability and reliability.",
+        "Managing SIT & UAT validation for complex banking workflows (Maker–Checker–Signer).",
+        "Optimizing log monitoring and job scheduling to maintain high availability of banking services."
       ]
     },
     {
-      company: "PT NTT Indonesia Technology",
+      "company": "PT Steradian Data Optima (Project: Bank BRI)",
+      "position": "Software Quality Assurance Engineer",
+      "period": "Mei 2025 – Mei 2026",
+      "responsibilities": [
+        "Performed end-to-end functional testing for Ops Console integrated with core banking systems.",
+        "Validated critical banking workflows, ensuring data mapping accuracy and compliance.",
+        "Collaborated with developers for SIT and coordinated UAT with business stakeholders.",
+        "Monitored server logs and job schedulers to identify and troubleshoot production issues."
+      ]
+    },
+    {
+      company: "PT NTT Indonesia Technology (Project: Bank BNI)",
       position: "Software Quality Assurance",
       period: "Feb 2024 – Jan 2025",
       responsibilities: [
@@ -37,7 +48,16 @@ const CareerJourney = () => {
         "Payment flow migration (Midtrans → Dynamic QR)",
         "UI testing from Figma & Marvelapp"
       ]
-    }
+    },
+    {
+      company: "Freelance",
+      position: "Mobile App Developer & Logo Designer",
+      period: "",
+      responsibilities: [
+        "Developed mobile applications using Flutter",
+        "Designed logos and UI/UX for various clients"
+      ]
+    },
   ];
 
   const itemVariants = {
@@ -66,7 +86,7 @@ const CareerJourney = () => {
         >
           {/* Timeline dot */}
           <div className="absolute left-0 top-0 w-3 h-3 bg-accent rounded-full -translate-x-[7px]" />
-          
+
           <div className="pb-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
               <div>
@@ -79,7 +99,7 @@ const CareerJourney = () => {
                 {exp.period}
               </span>
             </div>
-            
+
             <ul className="space-y-2">
               {exp.responsibilities.map((resp, respIndex) => (
                 <li key={respIndex} className={`flex items-start gap-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm md:text-base`}>

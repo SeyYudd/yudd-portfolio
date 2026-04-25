@@ -161,8 +161,8 @@ class ErrorBoundary extends Component {
               className="mt-8 text-gray-600 text-sm"
             >
               {lang === 'id' 
-                ? "PS: Kalau error-nya terus muncul, kabarin Yudi ya! 😄"
-                : "PS: If this keeps happening, let Yudi know! 😄"
+                ? "PS: Kalau error-nya terus muncul, kabarin Yudd ya! 😄"
+                : "PS: If this keeps happening, let Yudd know! 😄"
               }
             </motion.p>
           </motion.div>

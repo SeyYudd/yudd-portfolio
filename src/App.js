@@ -69,7 +69,7 @@ function App() {
         className={`fixed top-0 left-0 right-0 z-50 ${themeStyles.headerBg} backdrop-blur-md border-b ${themeStyles.borderColor}`}
       >
         <div className="container-custom py-4 flex items-center justify-between">
-          <span className="text-accent font-display font-bold text-lg">Yudi.</span>
+          <span className="text-accent font-display font-bold text-lg">Yudd</span>
           <div className="flex items-center gap-3">
             <LanguageToggle />
             <ThemeToggle />

@@ -5,66 +5,66 @@ import { useApp } from '../context/AppContext';
 const Expertise = () => {
   const { t, theme } = useApp();
 
-const skillCategories = [
-  {
-    title: t('testingMethodologies'),
-    skills: [
-      "UAT",
-      "SIT",
-      "TVT / BVT",
-      "Sanity Testing",
-      "Smoke Testing",
-      "Regression Testing",
-      "Test Case Management (TCM)"
-    ]
-  },
-  {
-    title: t('qaTestingTools'),
-    skills: [
-      "Postman",
-      "Jira",
-      "DBeaver",
-      "Kibana",
-      "Redis",
-      "Mobax",
-      "Appium",
-      "Android Studio",
-      "AS400",
-      "Figma",
-      "Marvelapp"
-    ]
-  },
-  {
-    title: t('technicalSkills'),
-    skills: [
-      "API Testing",
-      "End-to-End (E2E) Testing",
-      "UI Testing",
-      "Functional Testing",
-      "Manual Testing",
-      "Automation Testing",
-      "Log Tracing & Analysis",
-      "Debugging",
-      "Data Validation",
-      "CI/CD Basics",
-      "Basic Scripting (Bash, Python)",
-      "Dart (Flutter)",
-      "Database Testing (MySQL, PostgreSQL)",
-      "Data Visualization (Tableau, Power BI)"
-    ]
-  },
-  {
-    title: t('workflow'),
-    skills: [
-      "Agile / Scrum",
-      "SDLC",
-      "Waterfall",
-      "Bug Reporting & Tracking",
-      "Production Support",
-      "Cross-team Collaboration"
-    ]
-  }
-];
+  const skillCategories = [
+    {
+      title: t('testingMethodologies'),
+      skills: [
+        "UAT",
+        "SIT",
+        "TVT / BVT",
+        "Sanity Testing",
+        "Smoke Testing",
+        "Regression Testing",
+        "Test Case Management (TCM)"
+      ]
+    },
+    {
+      title: t('qaTestingTools'),
+      skills: [
+        "AS400",
+        "Redis",
+        "Postman",
+        "Jira",
+        "DBeaver",
+        "Kibana",
+        "Mobax",
+        "Appium",
+        "Android Studio / Android Emulator",
+        "Real Device Testing",
+        "Figma"
+      ]
+    },
+    {
+      title: t('technicalSkills'),
+      skills: [
+        "API Testing",
+        "End-to-End (E2E) Testing",
+        "UI Testing",
+        "Functional Testing",
+        "Manual Testing",
+        "Automation Testing",
+        "Log Tracing & Analysis",
+        "Debugging",
+        "Data Validation",
+        "CI/CD Basics",
+        "Basic Scripting (Bash, Python)",
+        "Dart (Flutter)",
+        "Database Testing (MySQL, PostgreSQL)",
+        "Data Visualization (Tableau, Power BI)"
+      ]
+    },
+    {
+      title: t('workflow'),
+      skills: [
+        "Agile / Scrum",
+        "SDLC",
+        "Waterfall",
+        "Bug Reporting & Tracking",
+        "Production Support",
+        "Cross-team Collaboration"
+      ]
+    }
+  ];
 
 
   const itemVariants = {

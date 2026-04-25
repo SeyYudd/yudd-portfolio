@@ -65,8 +65,8 @@ const LoadingScreen = ({ onComplete, onError }) => {
             transition={{ duration: 0.3 }}
             className="mb-8"
           >
-            <span className="text-accent font-display font-bold text-4xl md:text-5xl">
-              Yudi.
+            <span className="text-accent font-display text-5xl md:text-5xl">
+              Yudd Portfolio
             </span>
           </motion.div>
 

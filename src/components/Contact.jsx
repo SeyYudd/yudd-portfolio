@@ -27,9 +27,9 @@ const Contact = () => {
     },
     {
       icon: <ExternalLink size={18} />,
-      label: t('portfolioLink'),
-      value: "tr.ee/1G9x0Pq35S",
-      href: "https://tr.ee/1G9x0Pq35S"
+      label: t('Behance Portfolio'),
+      value: "https://www.behance.net/gallery",
+      href: "https://www.behance.net/gallery/222698041/Yudd-Portfolio/modules/1271366297"
     }
   ];
 
